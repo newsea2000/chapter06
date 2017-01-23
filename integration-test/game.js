@@ -1,9 +1,13 @@
 (function() {
     'use strict';
 
-    var expect = require('chai').expect;
+/*eslint-env phantomjs */
+/*eslint-disable no-console */
+
+var expect = require('chai').expect;
     var page = require('webpage').create();
-    var rootUrl = 'http://localhost:3000';
+    var rootUrl = 'http://localhost:3000' +
+                  require('system').env.TEST_PORT || 3000;
     
     withGame('Example', function() {
         expect(getText('#word')).to.equal('_______');
@@ -67,7 +71,7 @@
                 console.log('Test failed!');
                 handleError(e.message);
             }
-        }
+        };
     }
     
     function handleError(message) {
