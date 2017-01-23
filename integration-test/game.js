@@ -1,12 +1,9 @@
 (function() {
     'use strict';
 
-/*eslint-env phantomjs */
-/*eslint-disable no-console */
-
-var expect = require('chai').expect;
+    var expect = require('chai').expect;
     var page = require('webpage').create();
-    var rootUrl = 'http://localhost:3000' +
+    var rootUrl = 'http://localhost:' +
                   require('system').env.TEST_PORT || 3000;
     
     withGame('Example', function() {
